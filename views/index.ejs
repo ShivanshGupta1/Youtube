@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>YoutubeK12</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+</head>
+
+<body>
+    <section class="hero is-success">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    YoutubeK12
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <form method="POST" action="/">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input" style="width: 300px;" name="url" type="text" placeholder="Url - https://www.youtube.com/watch?v=(Any Code) ">
+                            </div>
+                            <div class="control">
+                                <button class="button is-danger">
+                                    Find My Youtuber
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <% if(info !== null){ %>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-50x50">
+                                  
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                        <span class="title"></span>
+                                        <br>
+                                        <img style="margin-left: 0px; margin-right: 100px; width: 1000px; height: 200px;" src="<%=info.info.thumbnails[0].url%>" alt="">
+                                        <h1>Title - <%= info.info.title%></h1>
+                                        <h4> Description - <%= info.info.description%></h4>
+                                        <small>Category - <%= info.info.categories%></small>
+
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <% } %>
+    <% if(error !== null){ %>
+        <h1> <%= error%></h1>
+        <% } %>
+    <footer class="footer">
+    </footer>
+</body>
+
+</html
